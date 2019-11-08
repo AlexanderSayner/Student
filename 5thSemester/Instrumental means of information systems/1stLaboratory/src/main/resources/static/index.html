@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css"
+          href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <Title>Main Page</Title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Spring Boot</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">На главную</a></li>
+                <li><a href="/blank">Бланк</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h2>Message: ${message}</h2>
+    </div>
+
+</div>
+<!-- /.container -->
+
+<div class="container">
+
+    <div class="starter-template">
+
+        <h1 align="center">Как поймать льва?</h1>
+        <h2 align="right">Метод перебора</h2>
+        <p align="justify">Делим пустыню на ряд элементарных участков, размер
+            которых совпадает с габаритными размерами льва, но при этом меньше размера
+            клетки. Далее простым перебором определяем участок, в котором находится лев,
+            что автоматически приводит к его поимке.</p>
+        <h2 align="right">Метод дихотомии</h2>
+        <p align="justify">Делим пустыню на две половины. В одной части - лев, в
+            другой его нет. Берем ту половину, в которой находится лев, и снова делим
+            ее пополам. Так повторяем до тех пор, пока лев не окажется пойман.</p>
+
+    </div>
+
+</div>
+<!-- /.container -->
+
+<script type="text/javascript"
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

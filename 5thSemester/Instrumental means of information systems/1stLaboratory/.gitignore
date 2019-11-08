@@ -1,0 +1,8 @@
+# IDE Settings
+.idea/*
+# Gradle dependencies
+/.gradle/*
+# No windows support at all
+/gradlew.bat
+# Buil filest
+/build/*
