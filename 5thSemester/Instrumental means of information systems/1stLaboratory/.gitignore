@@ -1,12 +1,11 @@
 # IDE Settings
-.idea/
+/.idea/
 # Gradle hash
-gradle/
+/gradle/
 # Gradle dependencies
 /.gradle/
 # No windows support at all
 /gradlew.bat
 # Build filest
 /build/*
-/main_app/build/*
 /print_lib/build/*

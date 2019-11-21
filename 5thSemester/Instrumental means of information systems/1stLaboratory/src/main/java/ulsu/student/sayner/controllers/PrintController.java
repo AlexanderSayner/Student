@@ -7,10 +7,10 @@ import ulsu.student.sayner.printlib.impl.PrinterWorkerImpl;
 
 import java.awt.print.PrinterException;
 
-@RestController("/print")
+@RestController
 public class PrintController {
 
-    @GetMapping
+    @GetMapping("/print")
     public String print() throws PrinterException {
 
         PrinterWorker printerWorker = new PrinterWorkerImpl();
