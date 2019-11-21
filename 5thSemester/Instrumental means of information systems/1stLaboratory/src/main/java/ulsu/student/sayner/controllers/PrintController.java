@@ -14,7 +14,7 @@ public class PrintController {
     public String print() throws PrinterException {
 
         PrinterWorker printerWorker = new PrinterWorkerImpl();
-        printerWorker.print();
+        printerWorker.helloWorldPrint();
         return "Отправлено на печать";
     }
 }

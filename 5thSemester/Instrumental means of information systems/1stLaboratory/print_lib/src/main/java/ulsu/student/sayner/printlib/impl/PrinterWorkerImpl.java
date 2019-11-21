@@ -9,7 +9,7 @@ import java.awt.print.PrinterJob;
 public class PrinterWorkerImpl implements PrinterWorker {
 
     @Override
-    public Boolean print() throws PrinterException {
+    public Boolean helloWorldPrint() throws PrinterException {
         System.out.print("Печатаю ... ");
 
         PrinterJob job = PrinterJob.getPrinterJob();

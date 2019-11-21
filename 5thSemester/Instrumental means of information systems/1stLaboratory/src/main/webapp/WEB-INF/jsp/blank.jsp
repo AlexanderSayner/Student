@@ -7,33 +7,10 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" type="text/css"
-          href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
-          <style>
-            table{
-              margin: 50px 0;
-              text-align: left;
-              border: 1px solid #ddd;
-              border-spacing: 10px;
-              border-radius: 3px;
-              background: #fdfdfd;
-              font-size: 14px;
-              width: auto;
-            }
-            td,th{
-              border: 1px solid #ddd;
-              padding: 5px;
-              border-radius: 3px;
-            }
-            th{
-              background: #E4E4E4;
-            }
-            caption{
-              font-style: italic;
-              text-align: right;
-              color: #547901;
-            }
-          </style>
+    <link rel="stylesheet" type="text/css"
+          href="css/blankStyle.css"/>
 
 </head>
 <body>
@@ -56,25 +33,34 @@
 
     <div class="starter-template">
 
-          <p align="center" >Образец обложки</p>
-          <p align="right">Унифицированная форма № КО-4</p>
-          <p align="right">Утверждена постановлением Госкомстата</p>
-          <p align="right">России от 18.08.98 №88</p>
+        <p align="center">Образец обложки</p>
+        <p align="right">Унифицированная форма № КО-4</p>
+        <p align="right">Утверждена постановлением Госкомстата</p>
+        <p align="right">России от 18.08.98 №88</p>
 
-          <table align="right">
+        <table align="right">
             <tr>
-              <td>Строка1 Ячейка1</td>
+                <td>Код</td>
             </tr>
             <tr>
-              <td>Строка2 Ячейка1</td>
+                <td>0310004</td>
             </tr>
-            <tr>
-              <td>Строка3 Ячейка1</td>
-            </tr>
-            <tr>
-              <td>Строка4 Ячейка1</td>
-            </tr>
-          </table>
+        </table>
+
+        <form>
+            Организация:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" name="organization" value="" size="30"> <br> <br>
+            Структурное подразделение: <input type="text" name="department" value="" size="30">
+        </form>
+
+        <div align="center">
+            <p id="textFont">Кассовая книга</p>
+            на
+            <input type="text" name="number" value="" placeholder="день" size="3">
+            <input type="text" name="month" value="" placeholder="месяц" size="3">
+            <input type="text" name="year" value="20" placeholder="год" size="3"> г.
+        </div>
+
 
     </div>
 

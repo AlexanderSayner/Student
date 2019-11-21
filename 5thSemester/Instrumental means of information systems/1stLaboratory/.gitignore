@@ -9,3 +9,5 @@
 # Build filest
 /build/*
 /print_lib/build/*
+# File for a print
+/source.html

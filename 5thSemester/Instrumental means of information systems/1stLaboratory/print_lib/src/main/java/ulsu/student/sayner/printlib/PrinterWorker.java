@@ -4,5 +4,5 @@ import java.awt.print.PrinterException;
 
 public interface PrinterWorker {
 
-    Boolean print() throws PrinterException;
+    Boolean helloWorldPrint() throws PrinterException;
 }
