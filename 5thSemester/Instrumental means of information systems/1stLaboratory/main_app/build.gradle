@@ -32,6 +32,10 @@ def $ecjVersion = '4.6.1'
 def $bootstrapVersion = '3.3.7'
 
 dependencies {
+    
+    // Внешние проекты
+    // Custom Print Lib
+	compile project(":print_lib")
 
     // SPRING
 

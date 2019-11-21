@@ -1,2 +1,4 @@
 rootProject.name = 'ui'
 
+include 'main_app', 'print_lib'
+
