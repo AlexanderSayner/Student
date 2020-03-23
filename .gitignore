@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# dir settings
+*.directory
+
+# IDE settings
+*/.idea/*
+
+# gradle jar
+*/gradle/*
