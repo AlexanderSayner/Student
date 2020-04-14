@@ -3,6 +3,9 @@
  */
 package cognitio
 
+import cognitio.matan.Polynomial
+import java.math.BigDecimal.valueOf
+
 class App {
     val greeting: String
         get() {
@@ -11,5 +14,12 @@ class App {
 }
 
 fun main(args: Array<String>) {
-    println(App().greeting)
+    val name = ", man"
+    println(App().greeting + name)
+    val poly = Polynomial()
+    poly.experiment()
+    println(poly.y(valueOf(2)))
+    println(poly.y(valueOf(3)))
+    println(poly.y(valueOf(5)))
+    println(poly.y(valueOf(4)))
 }
