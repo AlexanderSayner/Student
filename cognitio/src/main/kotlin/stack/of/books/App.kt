@@ -1,6 +1,5 @@
 package stack.of.books
 
-import com.sun.jdi.IntegerType
 import java.util.*
 
 fun main() {
@@ -15,17 +14,33 @@ fun main() {
 
     // Список отвечает за упорядоченность пар
     var stack = codes.toList()
-    message.forEach { letter ->
-        stack = stack.sortedWith(Comparator<Pair<String, String>> { pair1, pair2 ->
-            when {
-                pair1.first == letter -> -1
-                pair2.first == letter -> 1
-                else -> 0
-            }
+    // Результатирующее кодовое слово
+    val word = mutableListOf<String>()
 
-        })
-        println("Проход по букве $letter")
-        stack.forEach { pair: Pair<String, String> -> println(pair.first + " : " + pair.second) }
+    message.forEach { letter ->
+        if (stack[0].first == letter) {
+            word.add("0")
+        } else {
+            stack = stack.sortedWith(Comparator<Pair<String, String>> { pair1, pair2 ->
+                when {
+                    pair1.first == letter -> -1
+                    pair2.first == letter -> 1
+                    else -> 0
+                }
+
+            })
+            println("Проход по букве $letter")
+            stack.forEach { pair: Pair<String, String> -> println(pair.first + " : " + pair.second) }
+            // Записываю соответстующий букве код
+            word.add(stack[0].second)
+        }
     }
+
+    for (s in word) {
+        print("$s ")
+    }
+
+    println()
+//    val compressor=Compressor(listOf("a", "b", "c", "d"))
 }
 
