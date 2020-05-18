@@ -1,4 +1,4 @@
-package stack.of.books.logic
+package sandbox.cognitio.encoding.method.book.stack
 
 class BookStack(private val alphabet: List<String>) {
     private var _codes: LinkedHashMap<String, String>? = null

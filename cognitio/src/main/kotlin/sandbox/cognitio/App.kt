@@ -1,9 +1,11 @@
-package stack.of.books
+package sandbox.cognitio
 
-import stack.of.books.logic.BookStack
+import sandbox.cognitio.encoding.method.book.stack.BookStack
+import sandbox.cognitio.encoding.method.huffman.Huffman
 
-fun main() {
-    val alphabet = listOf("a", "b", "c", "d")
+fun bookStackExample() {
+
+    val alphabet = listOf("a", "b", "c", "d", "e", "f", "g")
     println("Алфавит: $alphabet")
 
     val message = listOf("a", "d", "d", "d", "a")
@@ -22,4 +24,12 @@ fun main() {
     decompressed.forEach {
         print("$it ")
     }
+    println()
+}
+
+fun main() {
+    val huffman= Huffman()
+    huffman.frequency()
+            .forEach { (t, u) -> println("$t : $u") }
+
 }
