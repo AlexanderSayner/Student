@@ -11,8 +11,8 @@ fun bookStackExample() {
     val message = listOf("a", "d", "d", "d", "a")
     println("Сообщение: $message")
 
-    val compressor= BookStack(alphabet)
-    val word=compressor.compress(message)
+    val compressor = BookStack(alphabet)
+    val word = compressor.compress(message)
 
     println("Получается: ")
     word.forEach {
@@ -20,7 +20,7 @@ fun bookStackExample() {
     }
 
     println("\nРасшифровка: ")
-    val decompressed=compressor.decompress(word)
+    val decompressed = compressor.decompress(word)
     decompressed.forEach {
         print("$it ")
     }
@@ -28,8 +28,13 @@ fun bookStackExample() {
 }
 
 fun main() {
-    val huffman= Huffman()
+    val huffman = Huffman()
     huffman.frequency()
             .forEach { (t, u) -> println("$t : $u") }
-
+//    val tree = Node(1)
+//    tree.left = Node(2)
+//    tree.left!!.left = Node(5)
+//    tree.right = Node(3)
+//    println(tree.toString())
+    println(huffman.tree(huffman.getNodeTree(huffman.frequency())).toString())
 }
