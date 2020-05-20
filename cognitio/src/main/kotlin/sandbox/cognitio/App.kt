@@ -1,5 +1,7 @@
 package sandbox.cognitio
 
+import sandbox.cognitio.algorythm.SeemsLikeAStaticOne
+import sandbox.cognitio.algorythm.tree.binary.Node
 import sandbox.cognitio.encoding.method.book.stack.BookStack
 import sandbox.cognitio.encoding.method.huffman.Huffman
 
@@ -31,10 +33,10 @@ fun main() {
     val huffman = Huffman()
     huffman.frequency()
             .forEach { (t, u) -> println("$t : $u") }
-//    val tree = Node(1)
-//    tree.left = Node(2)
-//    tree.left!!.left = Node(5)
-//    tree.right = Node(3)
-//    println(tree.toString())
-    println(huffman.tree(huffman.getNodeTree(huffman.frequency())).toString())
+    val tree: Node<String> = huffman.tree(huffman.getNodeTree(huffman.frequency()))!!
+    println(tree.toString())
+    tree.huffmanCodes("")
+    SeemsLikeAStaticOne.print()
+    val encodedBytes = huffman.encodeMessage(SeemsLikeAStaticOne.getDictionary(), "beep boop beer!")
+    println(huffman.decodeTree(tree, encodedBytes))
 }

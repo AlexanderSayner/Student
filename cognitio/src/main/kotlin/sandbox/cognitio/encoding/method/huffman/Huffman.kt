@@ -57,4 +57,35 @@ class Huffman(
 
         return nodeTree
     }
+
+    /**
+     * Кодирует в Хаффмана по словарю
+     */
+    fun encodeMessage(codeKey: Map<String, String>, message: String): String {
+        var encode = ""
+        message.forEach {
+            encode = encode.plus(codeKey[it.toString()])
+        }
+        return encode
+    }
+
+    /**
+     * На входе дерево и сообщение,
+     * на выходе - исходник
+     */
+    fun decodeTree(huffmanTree: Node<String>, encodedBytes: String): String {
+        var noda = huffmanTree
+        var message = ""
+        encodedBytes.forEach {
+            when (it) { // Развилка
+                '0' -> noda = noda.left!!
+                '1' -> noda = noda.right!!
+            }
+            if (noda.left == null && noda.right == null) { // Конец пути
+                message = message.plus(noda.key) // Сокровище
+                noda = huffmanTree  // Передвигаю фишку на старт
+            }
+        }
+        return message
+    }
 }
