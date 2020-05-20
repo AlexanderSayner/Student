@@ -29,7 +29,7 @@ fun bookStackExample() {
     println()
 }
 
-fun main() {
+fun huffmanExample(){
     val huffman = Huffman()
     huffman.frequency()
             .forEach { (t, u) -> println("$t : $u") }
@@ -39,4 +39,11 @@ fun main() {
     SeemsLikeAStaticOne.print()
     val encodedBytes = huffman.encodeMessage(SeemsLikeAStaticOne.getDictionary(), "beep boop beer!")
     println(huffman.decodeTree(tree, encodedBytes))
+}
+
+fun main() {
+    println("Стопка книг")
+    bookStackExample()
+    println("По Хаффману")
+    huffmanExample()
 }
