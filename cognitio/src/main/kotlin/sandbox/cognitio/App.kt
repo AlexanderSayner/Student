@@ -44,6 +44,6 @@ fun huffmanExample(){
 fun main() {
     println("Стопка книг")
     bookStackExample()
-    println("По Хаффману")
+    println("\nПо Хаффману")
     huffmanExample()
 }
