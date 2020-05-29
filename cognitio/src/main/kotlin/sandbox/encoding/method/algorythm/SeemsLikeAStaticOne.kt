@@ -1,4 +1,4 @@
-package sandbox.cognitio.algorythm
+package sandbox.encoding.method.algorythm
 
 class SeemsLikeAStaticOne {
     companion object {

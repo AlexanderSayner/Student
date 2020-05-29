@@ -1,9 +1,12 @@
-package sandbox.cognitio
+package sandbox.encoding.method
 
-import sandbox.cognitio.algorythm.SeemsLikeAStaticOne
-import sandbox.cognitio.algorythm.tree.binary.Node
-import sandbox.cognitio.encoding.method.book.stack.BookStack
-import sandbox.cognitio.encoding.method.huffman.Huffman
+import sandbox.encoding.method.algorythm.SeemsLikeAStaticOne
+import sandbox.encoding.method.algorythm.tree.binary.Node
+import sandbox.encoding.method.arithmetic.ArithmeticCoding
+import sandbox.encoding.method.book.stack.BookStack
+import sandbox.encoding.method.bwt.bwt
+import sandbox.encoding.method.huffman.Huffman
+
 
 fun bookStackExample() {
 
@@ -29,7 +32,7 @@ fun bookStackExample() {
     println()
 }
 
-fun huffmanExample(){
+fun huffmanExample() {
     val huffman = Huffman()
     huffman.frequency()
             .forEach { (t, u) -> println("$t : $u") }
@@ -41,9 +44,18 @@ fun huffmanExample(){
     println(huffman.decodeTree(tree, encodedBytes))
 }
 
+fun arithmetic() {
+    val arithmeticCoding = ArithmeticCoding()
+    arithmeticCoding.index()
+}
+
 fun main() {
     println("Стопка книг")
     bookStackExample()
     println("\nПо Хаффману")
     huffmanExample()
+    println("\nАрифметическое кодирование")
+    arithmetic()
+    println("\nАлгоритм преобразования")
+    bwt()
 }
