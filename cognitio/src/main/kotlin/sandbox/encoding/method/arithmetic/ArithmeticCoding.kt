@@ -13,7 +13,7 @@ class ArithmeticCoding {
     fun index(){
         val radix: Long = 10
         val fmt = "%-25s=> %19s * %d^%s\n"
-        val strings = arrayOf("beep boop beer!", "abracadabra", "to be or not to be or want to be or not?")
+        val strings = arrayOf("beep boop beer!", "This is better than Huffman one", "to be or not to be or want to be or not?")
         for (str in strings) {
             val encoded: Triple<BigInteger, Int, Freq>? = arithmeticCoding(str, radix)
             val dec = encoded?.a?.let { arithmeticDecoding(it, radix, encoded.b, encoded.c) }
