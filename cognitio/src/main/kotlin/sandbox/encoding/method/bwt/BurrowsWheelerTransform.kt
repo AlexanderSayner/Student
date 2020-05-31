@@ -38,7 +38,7 @@ fun makePrintable(s: String): String {
 fun bwt(){
     val tests = listOf(
             "mathematics",
-            "pineapple",
+            "математика",
             "to be or not to be or want to be or not?"
     )
     for (test in tests) {
