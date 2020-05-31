@@ -1,6 +1,8 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
+#include "FIleReader.h"
+#include "DataService.h"
+#include "ControlPanel.h"
 
 using namespace std;
 
@@ -81,12 +83,12 @@ int firstProgram(int mode) {
         if (buffer == search && !isFound) {
             isFound = true;
         }
-        if (isFound && i == '|') {
-            cout << "Got it:\n" << buffer;
+        if (isFound && (i == '|' || i == '\n')) {
+            cout << "Got it:\n" << buffer << '\n';
             break;
         }
 
-        if (i == '|') {
+        if (i == '|' || i == '\n') {
             buffer = "";
         }
     }
@@ -103,8 +105,9 @@ int secondProgram(int mode) {
     auto *fileName = "database.txt";
 
     // Заполнение файла
-    ofstream outfile(fileName);
-    if (!outfile) {
+    auto *outfile = new ofstream();
+    outfile->open(fileName);
+    if (!*outfile) {
         cout << "Can't create file " << *fileName;
         return -1;
     }
@@ -131,9 +134,9 @@ int secondProgram(int mode) {
             cin >> *isBlossom;
             *buffer = *buffer + *name + "_" + *color + "_" + *isBlossom + "|";
             cout << "Do you want write one more? Y/n";
-            char *answer;
-            cin >> *answer;
-            switch (*answer) {
+            char answer;
+            cin >> answer;
+            switch (answer) {
                 case 'Y':
                 case 'y': {
                     *isOneMore = true;
@@ -146,46 +149,49 @@ int secondProgram(int mode) {
         }
         delete isOneMore;
     }
-    outfile << *buffer << endl;
-    outfile.close();
+    *outfile << *buffer << endl;
+    outfile->close();
+    free(outfile);
 
     // Считываение файла
-    ifstream infile(fileName, ios::binary);
-    if (!infile.is_open()) {
+    auto *infile = new ifstream(fileName, ios::binary);
+    if (!infile->is_open()) {
         cout << "Can't open file " << *fileName;
         return -1;
     }
-    infile.seekg(0, ios::end);
-    int n = infile.tellg();
-    infile.seekg(0, ios::beg);
+    infile->seekg(0, ios::end);
+    int n = infile->tellg();
+    infile->seekg(0, ios::beg);
     char *s = new char[n + 1];
     s[n] = 0;
-    infile.read(s, n);
+    infile->read(s, n);
+    infile->close();
+    free(infile);
     cout << "There are file records:\n" << s;
 
     // Поиск по файлу
     cout << "Searching by name:\n" << "Please, enter the flowers name:\n";
     string input;
     cin >> input;
-    string *search = new string(input);
+    auto *search = new string(input);
     delete buffer;
     buffer = new string("");
     bool *isFound = new bool(false);
 
     for (char *it = s; *it; ++it) {
-        string *buf = new string(*buffer + *it);
+        auto *buf = new string(*buffer + *it);
         delete buffer;
         buffer = new string(*buf);
 
         if (*buffer == *search && !*isFound) {
             *isFound = true;
         }
-        if (*isFound && *it == '|') {
-            cout << "Got it:\n" << *buffer;
+        if (*isFound && (*it == '|' || *it == '\n')) {
+            cout << "Got it:\n" << *buffer << '\n';
             break;
         }
 
-        if (*it == '|') {
+        if (*it == '|' || *it == '\n') {
             delete buffer;
             buffer = new string("");
         }
@@ -207,11 +213,18 @@ int secondProgram(int mode) {
  * @return 0 - выполнено без ошибок
  */
 int thirdProgram(int mode) {
-    return 0;
+    const char *fileName = "database.txt";
+    auto controlPanel = ControlPanel();
+    if (mode == 0) {
+        return controlPanel.manualInput("database.txt");
+    } else {
+        return controlPanel.autoInput("database.txt");
+    }
 }
 
 int main() {
-//    firstProgram(1);
+    firstProgram(1);
     secondProgram(1);
+    thirdProgram(1);
     return 0;
 }
