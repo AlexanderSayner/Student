@@ -4,9 +4,9 @@
 using namespace std;
 
 /**
- * ЛИнейная программа
+ * Линейная программа
  * @param mode 0 - ручной ввод, 1 - автоматический
- * @return
+ * @return 0 - выполнено без ошибок
  */
 int first(int mode) {
     auto fileName = "database.txt";
@@ -67,21 +67,53 @@ int first(int mode) {
     string s;
     for (infile >> s; !infile.eof(); infile >> s)
         cout << s << endl;
+    infile.close();
     cout << "There are file records:\n" << s << '\n';
 
     // Поиск по файлу
+    cout << "Searching by name:\n" << "Please, enter the flowers name:\n";
+    string search;
+    cin >> search;
+    buffer = "";
+    bool isFound = false;
+    for (char i : s) {
+
+        buffer = buffer + i;
+        if (buffer == search && !isFound) {
+            isFound = true;
+        }
+        if (isFound && (i == '|' || i == s[s.length() - 1])) {
+            cout << "Got it:\n" << buffer;
+            break;
+        }
+
+        if (i == '|') {
+            buffer = "";
+        }
+    }
+
     return 0;
 }
 
-int second() {
+/**
+ * Линейка с указателями
+ * @param mode 0 - ручной ввод, 1 - автоматический
+ * @return 0 - выполнено без ошибок
+ */
+int second(int mode) {
     return 0;
 }
 
-int third() {
+/**
+ * ООП
+ * @param mode 0 - ручной ввод, 1 - автоматический
+ * @return 0 - выполнено без ошибок
+ */
+int third(int mode) {
     return 0;
 }
 
 int main() {
-    first(0);
+    first(1);
     return 0;
 }
