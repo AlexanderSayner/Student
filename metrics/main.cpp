@@ -216,9 +216,9 @@ int thirdProgram(int mode) {
     const char *fileName = "database.txt";
     auto controlPanel = ControlPanel();
     if (mode == 0) {
-        return controlPanel.manualInput("database.txt");
+        return controlPanel.manualInput(fileName);
     } else {
-        return controlPanel.autoInput("database.txt");
+        return controlPanel.autoInput(fileName);
     }
 }
 
