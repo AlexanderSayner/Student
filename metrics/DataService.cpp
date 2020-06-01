@@ -12,6 +12,7 @@ std::string DataService::search(char *data, const std::string &search) {
         auto *buf = new std::string(*buffer + *it);
         delete buffer;
         buffer = new std::string(*buf);
+        delete buf;
 
         if (*buffer == search && !*isFound) {
             *isFound = true;
