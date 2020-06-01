@@ -182,6 +182,7 @@ int secondProgram(int mode) {
         auto *buf = new string(*buffer + *it);
         delete buffer;
         buffer = new string(*buf);
+        delete buf;
 
         if (*buffer == *search && !*isFound) {
             *isFound = true;
@@ -224,7 +225,9 @@ int thirdProgram(int mode) {
 
 int main() {
     firstProgram(1);
+    cout << '\n';
     secondProgram(1);
+    cout << '\n';
     thirdProgram(1);
     return 0;
 }
