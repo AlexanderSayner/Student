@@ -23,12 +23,21 @@ int main() {
 
     auto *buffer = new string("");
     if (mode) {
+        int *number;
+        int *height;
         *name = "Cactus";
         *color = "Green";
-        *buffer = *name + "_" + *color + "_" + *isBlossom + "|";
+        int n_value = 11;
+        number = &n_value;
+        int h_value = 25;
+        height = &h_value;
+        *buffer = *name + "_" + *color + "_" + *isBlossom + "_" + to_string(*number) + "_" + to_string(*height) + "|";
         *name = "Rose";
         *color = "Red";
-        *buffer = *buffer + *name + "_" + *color + "_" + *isBlossom + "|";
+        n_value = 13;
+        h_value = 40;
+        *buffer = *buffer +
+                  *name + "_" + *color + "_" + *isBlossom + "_" + to_string(*number) + "_" + to_string(*height) + "|";
     } else {
         bool *isOneMore = new bool(true);
         while (*isOneMore) {
@@ -38,7 +47,13 @@ int main() {
             cin >> *color;
             cout << "Is it blossom? y/n" << '\n';
             cin >> *isBlossom;
-            *buffer = *buffer + *name + "_" + *color + "_" + *isBlossom + "|";
+            cout << "How many flowers?" << '\n';
+            int n_value;
+            cin >> n_value;
+            cout << "Flower height" << '\n';
+            int h_value;
+            cin >> h_value;
+            *buffer += *name + "_" + *color + "_" + *isBlossom + "_" + to_string(n_value) + "_" + to_string(h_value) + "|";
             cout << "Do you want write one more? Y/n";
             char answer;
             cin >> answer;

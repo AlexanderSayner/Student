@@ -25,6 +25,10 @@ int FIleReader::writeIntoNewFile(const char *fileName, const Flower &flower) {
     buffer += flower.color;
     buffer += '_';
     buffer += flower.isBlossom;
+    buffer += '_';
+    buffer += std::to_string(flower.number);
+    buffer += '_';
+    buffer += std::to_string(flower.height);
     buffer += '|';
     outfile << buffer << '\n';
     outfile.close();

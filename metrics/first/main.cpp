@@ -16,18 +16,23 @@ int main() {
         cout << "Can't create file " << fileName;
         return -1;
     }
-    string name;
-    string color;
+    string name, color;
+    int number, height;
     char isBlossom = 'y';
 
     string buffer;
     if (mode) {
         name = "Cactus";
         color = "Green";
-        buffer = name + "_" + color + "_" + isBlossom + "|";
+        number = 11;
+        height = 40;
+        buffer = name + "_" + color + "_" + isBlossom + "_" + to_string(number) + "_" + to_string(height) + "|";
         name = "Rose";
         color = "Red";
-        buffer = buffer + name + "_" + color + "_" + isBlossom + "|";
+        number = 13;
+        height = 25;
+        buffer =
+                buffer + name + "_" + color + "_" + isBlossom + "_" + to_string(number) + "_" + to_string(height) + "|";
     } else {
         bool isOneMore = true;
         while (isOneMore) {
@@ -37,7 +42,11 @@ int main() {
             cin >> color;
             cout << "Is it blossom? y/n" << '\n';
             cin >> isBlossom;
-            buffer += name + "_" + color + "_" + isBlossom + "|";
+            cout << "How many flowers?" << '\n';
+            cin >> number;
+            cout << "Flower height" << '\n';
+            cin >> height;
+            buffer += name + "_" + color + "_" + isBlossom + "_" + to_string(number) + "_" + to_string(height) + "|";
             cout << "Do you want write one more? Y/n";
             char answer;
             cin >> answer;
