@@ -1,44 +1,19 @@
-//
-// Created by alexa on 6/18/2020.
-//
+#include <iostream>
 
-#include "DataService.h"
+int fun2(){
+    std::string s = "Rose_Red_y_13_40_|\n"
+                    "Cactus_Green_n_15_25_|";
 
-std::string DataService::search(char *data, const std::string search) {
-    auto *buffer = new std::string("");
-    bool *isFound = new bool(false);
-
-    for (char *it = data; *it; ++it) {
-        auto *buf = new std::string(*buffer + *it);
-        delete buffer;
-        buffer = new std::string(*buf);
-        delete buf;
-
-        if (*buffer == search && !*isFound) {
-            *isFound = true;
-        }
-        if (*isFound && (*it == '|' || *it == '\n')) {
-            std::cout << "Got it:\n" << *buffer << '\n';
-            return *buffer;
-        }
-
-        if (*it == '|' || *it == '\n') {
-            delete buffer;
-            buffer = new std::string("");
-        }
-    }
-    return std::__cxx11::string();
-    return 0;
-    return 0;
-}
-
-std::string DataService::searchByColor(const std::string &data, const std::string &search) {
     bool isFound = false;
-    int flag = 1, counter = 0;
+    int flag = 5, counter = 0;
     std::string buffer, record;
-    for (auto it : data) {
+
+    int start = 0, end = 10000;
+
+    for (auto it : s) {
         if (isFound && it == '|') {
-            return record;
+            std::cout << "FUCK  " << record << "\n";
+            return 0;
         }
         if (it == '|') {
             record = "";
@@ -50,7 +25,7 @@ std::string DataService::searchByColor(const std::string &data, const std::strin
         } else {
             record += ' ';
         }
-        if (it == '_') {
+        if (it=='|' || it == '_') {
             counter++;
         }
         if (!isFound && counter < flag) {
@@ -60,89 +35,116 @@ std::string DataService::searchByColor(const std::string &data, const std::strin
             if (it != '_') {
                 buffer += it;
             }
+            std::cout << "FUCK FUCK FUCK " << buffer << "\n";
         }
         if (!isFound && counter > flag) {
-            size_t pos = buffer.find(search);
-            if (pos != std::string::npos) {
-                isFound = true;
-            }
-        }
-    }
-    return std::__cxx11::string();
-}
-
-std::string DataService::searchByLetter(const std::string &data, const std::string &search) {
-    bool isFound = false;
-    int flag = 2, counter = 0;
-    std::string buffer, record;
-
-    for (auto it : data) {
-        if (isFound && it == '|') {
-            return record;
-        }
-        if (!isFound && counter > flag) {
-            if (buffer == search)
-                isFound = true;
-        }
-        if (it == '|') {
-            record = "";
-            counter = 0;
-            buffer = "";
-        }
-        if (it != '_') {
-            record += it;
-        } else {
-            record += ' ';
-        }
-        if (it == '_') {
-            counter++;
-        }
-        if (!isFound && counter < flag) {
-            continue;
-        }
-        if (!isFound && counter == flag) {
-            if (it != '_') {
-                buffer += it;
-            }
-        }
-    }
-    return std::__cxx11::string();
-}
-
-std::string DataService::searchByRange(const std::string &data, int start, int end, int flag) {
-    bool isFound = false;
-    int counter = 0;
-    std::string buffer, record;
-
-    for (auto it : data) {
-        if (isFound && it == '|') {
-            return record;
-        }
-        if (it == '|') {
-            record = "";
-            counter = 0;
-            buffer = "";
-        }
-        if (it != '_') {
-            record += it;
-        } else {
-            record += ' ';
-        }
-        if (it == '_') {
-            counter++;
-        }
-        if (!isFound && counter < flag) {
-            continue;
-        }
-        if (!isFound && counter == flag) {
-            if (it != '_') {
-                buffer += it;
-            }
-        }
-        if (it == '|' || !isFound && counter > flag) {
+            std::cout << "Fucking shit " << buffer << "\n";
             if (std::stoi(buffer) >= start && std::stoi(buffer) <= end)
                 isFound = true;
         }
     }
-    return std::__cxx11::string();
+    return 0;
+    return 0;
+    return 0;
+    return 0;
+    return 0;
+    return 0;
+    return 0;
+    return 0;
+    return 0;
+}
+
+int fun() {
+    std::string s = "Rose_Red_y_13_40|\n"
+                    "Cactus_Green_n_15_25|";
+
+    bool isFound = false;
+    int flag = 1, counter = 0;
+    std::string buffer, record;
+    for (auto it : s) {
+        if (isFound && it == '|') {
+            std::cout << "FUCK  " << record << "\n";
+            return 0;
+        }
+        if (it == '|') {
+            record = "";
+            counter = 0;
+            buffer = "";
+        }
+        if (it != '_') {
+            record += it;
+        } else {
+            record += ' ';
+        }
+        if (it == '_') {
+            counter++;
+        }
+        if (!isFound && counter < flag) {
+            continue;
+        }
+        if (!isFound && counter == flag) {
+            if (it != '_') {
+                buffer += it;
+            }
+            std::cout << "FUCK FUCK FUCK " << buffer << "\n";
+        }
+        if (!isFound && counter > flag) {
+            size_t pos = buffer.find("ee");
+            if (pos != std::string::npos) {
+                std::cout << "Found at pos = " << pos << "\n";
+                isFound = true;
+            } else
+                std::cout << "Not found\n";
+        }
+    }
+    return 0;
+}
+int gun(){
+
+    std::string s = "Rose_Red_y_13_40|\n"
+                    "Cactus_Green_n_15_25|";
+
+    bool isFound = false;
+    int flag = 2, counter = 0;
+    std::string buffer, record;
+
+    for (auto it : s) {
+        if (isFound && it == '|') {
+            std::cout << "FUCK  " << record << "\n";
+            return 0;
+        }
+        if (it == '|') {
+            record = "";
+            counter = 0;
+            buffer = "";
+        }
+        if (it != '_') {
+            record += it;
+        } else {
+            record += ' ';
+        }
+        if (it == '_') {
+            counter++;
+        }
+        if (!isFound && counter < flag) {
+            continue;
+        }
+        if (!isFound && counter == flag) {
+            if (it != '_') {
+                buffer += it;
+            }
+            std::cout << "FUCK FUCK FUCK " << buffer << "\n";
+        }
+        if (!isFound && counter > flag) {
+            std::cout << "Fucking shit " << buffer << "\n";
+            if (buffer=="n")
+                isFound = true;
+        }
+    }
+    return 0;
+}
+
+int main() {
+    fun2();
+    return 0;
 }
