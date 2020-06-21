@@ -1,8 +1,9 @@
 //
-// Created by alexa on 6/1/2020.
+// Created by alexa on 6/18/2020.
 //
 
 #include "ControlPanel.h"
+#include "DataService.h"
 
 int ControlPanel::autoInput(const char *fileName) {
     auto fIleReader = FIleReader();
@@ -11,10 +12,14 @@ int ControlPanel::autoInput(const char *fileName) {
     rose->name = "Rose";
     rose->color = "Red";
     rose->isBlossom = 'y';
+    rose->number = 13;
+    rose->height = 40;
     auto *cactus = new Flower();
     cactus->name = "Cactus";
     cactus->color = "Green";
     cactus->isBlossom = 'n';
+    cactus->number = 15;
+    cactus->height = 25;
     if (fIleReader.writeIntoNewFile(fileName, *rose) != 0)
         return -1;
     if (fIleReader.writeIntoNewFile(fileName, *cactus) != 0)
@@ -34,6 +39,10 @@ int ControlPanel::manualInput(const char *fileName) {
         std::cin >> flower->color;
         std::cout << "Is it blossom? y/n" << '\n';
         std::cin >> flower->isBlossom;
+        std::cout << "How many flowers?" << '\n';
+        std::cin >> flower->number;
+        std::cout << "Flower height" << '\n';
+        std::cin >> flower->height;
         if (fIleReader.writeIntoNewFile(fileName, *flower) != 0)
             return -1;
         std::cout << "Do you want write one more? Y/n";

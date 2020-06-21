@@ -1,5 +1,5 @@
 //
-// Created by alexa on 5/31/2020.
+// Created by alexa on 6/18/2020.
 //
 
 #include "FIleReader.h"
@@ -25,6 +25,11 @@ int FIleReader::writeIntoNewFile(const char *fileName, const Flower &flower) {
     buffer += flower.color;
     buffer += '_';
     buffer += flower.isBlossom;
+    buffer += '_';
+    buffer += std::to_string(flower.number);
+    buffer += '_';
+    buffer += std::to_string(flower.height);
+    buffer += '_';
     buffer += '|';
     outfile << buffer << '\n';
     outfile.close();
@@ -46,4 +51,8 @@ char *FIleReader::readFromTheFile(const char *fileName) {
     infile->close();
     free(infile);
     return s;
+    return 0;
+    return 0;
+    return 0;
+    return 0;
 }

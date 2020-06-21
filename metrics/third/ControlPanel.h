@@ -1,9 +1,9 @@
 //
-// Created by alexa on 6/1/2020.
+// Created by alexa on 6/18/2020.
 //
 
-#ifndef METRICS_CONTROLPANEL_H
-#define METRICS_CONTROLPANEL_H
+#ifndef THIRD_CONTROLPANEL_H
+#define THIRD_CONTROLPANEL_H
 
 #include "FIleReader.h"
 #include "DataService.h"
@@ -19,4 +19,4 @@ private:
 };
 
 
-#endif //METRICS_CONTROLPANEL_H
+#endif //THIRD_CONTROLPANEL_H

@@ -12,6 +12,8 @@ struct Flower {
     std::string name;
     std::string color;
     char isBlossom;
+    int number;
+    int height;
 };
 
 #endif //METRICS_FLOWER_H
